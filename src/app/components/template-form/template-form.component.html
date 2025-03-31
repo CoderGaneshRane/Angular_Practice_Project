@@ -1,1 +1,76 @@
-<p>template-form works!</p>
+<div class="container">
+    <form #form="ngForm">
+        <div class="row mt-4">
+            <div class="col-md-4 mb-3">
+                <label>First name</label>
+                <input type="text" [(ngModel)]="studentObj.firstName" name="firstName" class="form-control" #fname="ngModel" placeholder="First name" value="Mark" required minlength="3">
+                <div *ngIf="fname.touched || fname.dirty" class="text-danger">
+                    <span *ngIf="fname?.errors?.['required']">This field is required</span>
+                    <span *ngIf="fname?.errors?.['minlength']">Minimum 3 letter required</span>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Last name</label>
+                <input type="text"
+                [(ngModel)]="studentObj.lastName" name="lastName" class="form-control" placeholder="Last name" #lname="ngModel" minlength="3" value="Otto" required>
+                <div *ngIf="lname.touched || lname.dirty" class="text-danger">
+                    <span *ngIf="lname?.errors?.['required']">This field is required</span>
+                    <span *ngIf="lname?.errors?.['minlength']">Minimum 3 letter required</span>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Username</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">&#64;</span>
+                    </div>
+                    <input type="text" 
+                    [(ngModel)]="studentObj.username" name="username"class="form-control" placeholder="Username" #username="ngModel" minlength="3" required>
+                    
+                </div>
+                <div *ngIf="username.touched || username.dirty" class="text-danger">
+                    <span *ngIf="username?.errors?.['required']">This field is required</span>
+                    <span *ngIf="username?.errors?.['minlength']">Minimum 3 letter required</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label>City</label>
+                <input type="text"
+                [(ngModel)]="studentObj.city" name="city" class="form-control" #city="ngModel" placeholder="City" required>
+                <div *ngIf="city.touched || city.dirty" class="text-danger">
+                    <span *ngIf="city?.errors?.['required']">This field is required</span>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>State</label>
+                <input type="text"
+                [(ngModel)]="studentObj.state" name="state" class="form-control" #state="ngModel" placeholder="State" required>
+                <div *ngIf="state.touched || state.dirty" class="text-danger">
+                    <span *ngIf="state?.errors?.['required']">This field is required</span>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Zip</label>
+                <input type="text" 
+                [(ngModel)]="studentObj.zip" name="zip"class="form-control" placeholder="Zip" #zip="ngModel" required>
+                <div *ngIf="zip.touched || zip.dirty" class="text-danger">
+                    <span *ngIf="zip?.errors?.['required']">This field is required</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input [(ngModel)]="studentObj.isAgreed" name="isAgreed" class="form-check-input" type="checkbox" required>
+                <label class="form-check-label">
+                    Agree to terms and conditions
+                </label>
+            </div>
+        </div>
+        <div class="footer text-center">
+            <button class="btn btn-sm btn-secondary text-center" type="submit" (click)="clearForm()">Clear form</button>
+            <button class="btn btn-sm btn-primary ms-1" type="submit" [disabled]="form.invalid" (click)="onSubmit()">Submit form</button>
+        </div>
+    </form>
+</div>
