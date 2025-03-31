@@ -6,5 +6,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent {
-
+studentObj:any={
+  firstName:'',
+  lastName:'',
+  userName:'',
+  city:'',
+  state:'',
+  zip:'',
+  isAgreed:false
+}
+onSubmit(){
+  console.table(this.studentObj);
+}
+clearForm(){
+  this.studentObj={
+    firstName:'',
+    lastName:'',
+    userName:'',
+    city:'',
+    state:'',
+    zip:'',
+    isAgreed:false
+  }
+}
 }
