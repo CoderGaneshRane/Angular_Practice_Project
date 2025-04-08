@@ -10,13 +10,13 @@ export class ReactiveFormComponent {
 
   //First Way:
   studentForm: FormGroup = new FormGroup({
-    firstName: new FormControl('',[Validators.required, Validators.minLength(3)]),
-      lastName: new FormControl('',[Validators.required, Validators.minLength(3)]),
-      username: new FormControl('',[Validators.required, Validators.minLength(3)]),
-      city: new FormControl('',[Validators.required]),
-      state: new FormControl('',[Validators.required]),
-      zipCode: new FormControl('',[Validators.required, Validators.pattern('^[0-9]{6}$')]),
-      isAgree: new FormControl(false,[Validators.requiredTrue])
+    firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    city: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
+    zipCode: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$')]),
+    isAgree: new FormControl(false, [Validators.requiredTrue])
   })
 
   //Second Way:

@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-3 d-flex">
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="userId" placeholder="Enter ID">
+            </div>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-success" (click)="filterUserById()">Get User</button>
+        </div>
+    </div>
+    <div [formGroup]="userData">
+        <div class="row mt-5">
+            <div class="col-md-4 mb-3">
+                <label>Name</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="First name">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Phone</label>
+                <input type="text" class="form-control" formControlName="phone" placeholder="Last name">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Username</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">&#64;</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="username" placeholder="Username">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label>City</label>
+                <input type="text" class="form-control" formControlName="city" placeholder="City">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Street</label>
+                <input type="text" class="form-control" formControlName="street" placeholder="State">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Zip</label>
+                <input type="text" class="form-control" formControlName="zipcode" placeholder="Zip">
+            </div>
+        </div>
+    </div>
+</div>
