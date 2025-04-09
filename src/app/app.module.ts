@@ -12,13 +12,15 @@ import { GetApiComponent } from './components/get-api/get-api.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PostApiComponent } from './components/post-api/post-api.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateFormComponent,
     ReactiveFormComponent,
-    GetApiComponent
+    GetApiComponent,
+    PostApiComponent
   ],
   imports: [
     BrowserModule,
