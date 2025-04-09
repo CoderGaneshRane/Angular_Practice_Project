@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-get-api',
@@ -12,7 +13,7 @@ export class GetApiComponent {
 userId:any;
 userList:any[]=[];  
 resultedUser:any;
-constructor(private http:HttpClient){
+constructor(private http:HttpClient, private toastr:ToastrService){
   this.getAllUsersUsingNext();
 }
 
@@ -42,6 +43,7 @@ filterUserById(){
 
   this.resultedUser = this.userList.filter(user => user.id==this.userId);
   if(this.resultedUser[0]){
+    this.toastr.success('','User retrived '+this.resultedUser[0].name)
     this.userData.get('name')?.setValue(this.resultedUser[0].name);
     this.userData.get('phone')?.setValue(this.resultedUser[0].phone);
     this.userData.get('username')?.setValue(this.resultedUser[0].username);
@@ -50,7 +52,8 @@ filterUserById(){
     this.userData.get('zipcode')?.setValue(this.resultedUser[0].address.zipcode);
   }
   else{
-    alert("ID not found !!");
+    this.userData.reset();
+    this.toastr.warning('','Invalid ID')
   }
 }
 }
