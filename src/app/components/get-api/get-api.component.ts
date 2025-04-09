@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-get-api',
@@ -13,7 +14,7 @@ export class GetApiComponent {
 userId:any;
 userList:any[]=[];  
 resultedUser:any;
-constructor(private http:HttpClient, private toastr:ToastrService){
+constructor(private http:HttpClient, private toastr:ToastrService, private service:ApiService){
   this.getAllUsersUsingNext();
 }
 
@@ -33,8 +34,8 @@ userData:FormGroup = new FormGroup({
   zipcode: new FormControl('')
 })
 getAllUsersUsingNext(){
-  this.http.get("https://jsonplaceholder.typicode.com/users").subscribe({
-    next: (res:any)=>{
+  this.service.getAllUsersUsingNext().subscribe({
+    next : (res:any) =>{
       this.userList = res;
     }
   })
