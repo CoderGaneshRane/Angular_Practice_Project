@@ -10,7 +10,9 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getAllUsersUsingNext(): Observable<any> {
-    debugger
     return this.http.get("https://jsonplaceholder.typicode.com/users");
+  }
+  submitUser(data:any):Observable<any>{
+    return this.http.post("mockapi",data);
   }
 }

@@ -1,0 +1,102 @@
+<div class="mt-3 w-75" style="margin-left: 120px;">
+    <h2 class="text-center">Add User</h2>
+    <form [formGroup]="userData" (ngSubmit)="submitUserData()">
+        <div class="row">
+            <div class="col-4 mb-3">
+                <label class="d-block">Name</label>
+                <input class="form-control" formControlName="name" type="text" placeholder="Enter Name">
+                <span class="text-danger"
+                    *ngIf="userData.get('name')?.touched && userData.get('name')?.errors?.['required']">Name is required!</span>
+            </div>
+            <div class="col-4 mb-3">
+                <label class="d-block">Username</label>
+                <input class="form-control" formControlName="username" type="text" placeholder="Enter Username">
+                <span class="text-danger"
+                    *ngIf="userData.get('username')?.touched && userData.get('username')?.errors?.['required']">Username is
+                    required</span>
+                <span class="text-danger"
+                    *ngIf="userData.get('username')?.touched && userData.get('username')?.errors?.['minlength']">Minimum 6
+                    characters are required !</span>
+            </div>
+            <div class="col-4 mb-3">
+                <label class="d-block">Phone</label>
+                <input class="form-control" formControlName="phone" type="text" placeholder="Enter Phone">
+                <span class="text-danger"
+                    *ngIf="userData.get('phone')?.touched && userData.get('phone')?.errors?.['pattern']">Invalid Mobile
+                    Number</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label class="d-block">City</label>
+                <input class="form-control" formControlName="city" type="text" placeholder="Enter City">
+                <span class="text-danger" *ngIf="userData.get('city')?.touched && userData.get('city')?.errors?.['required']">City is required</span>
+            </div>
+            <div class="col-4">
+                <label class="d-block">Street</label>
+                <input class="form-control" formControlName="street" type="text" placeholder="Enter Street">
+                <span class="text-danger" *ngIf="userData.get('street')?.touched && userData.get('street')?.errors?.['required']">Street is required</span>
+            </div>
+            <div class="col-4">
+                <label class="d-block">Zipcode</label>
+                <input class="form-control" formControlName="zipcode" type="text" placeholder="Enter Zipcode">
+                <span class="text-danger" *ngIf="userData.get('zipcode')?.touched && userData.get('zipcode')?.errors?.['pattern']">Invalid Zip Code</span>
+            </div>
+        </div>   
+        <div class="text-center mt-3">
+            <button class="btn btn-success" [disabled]="userData.invalid">Submit</button>
+        </div>     
+    </form>
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="container" [formGroup]="userData">
+        <h3 class="text-center mt-2">User Table</h3>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Phone
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Street
+                    </th>
+                    <th>
+                        Zipcode
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of userList">
+                    <td>
+                        {{item.name}}
+                    </td>
+                    <td>
+                        {{item.username}}
+                    </td>
+                    <td>
+                        {{item.phone}}
+                    </td>
+                    <td>
+                        {{item.city}}
+                    </td>
+                    <td>
+                        {{item.street}}
+                    </td>
+                    <td>
+                        {{item.zipcode}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
