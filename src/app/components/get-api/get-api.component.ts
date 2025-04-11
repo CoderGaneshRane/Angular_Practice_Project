@@ -15,7 +15,8 @@ userId:any;
 userList:any[]=[];  
 resultedUser:any;
 constructor(private http:HttpClient, private toastr:ToastrService, private service:ApiService){
-  this.getAllUsersUsingNext();
+  //this.getAllUsersUsingNext();
+  this.getStudentList();
 }
 
 //Direct using subscribe
@@ -56,5 +57,12 @@ filterUserById(){
     this.userData.reset();
     this.toastr.warning('','Invalid ID')
   }
+}
+getStudentList(){
+  this.service.getAllStudents().subscribe({
+    next: (res)=> {
+      console.table(res);
+    }
+  })
 }
 }
