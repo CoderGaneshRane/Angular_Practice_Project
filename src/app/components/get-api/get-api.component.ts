@@ -14,9 +14,11 @@ export class GetApiComponent {
 userId:any;
 userList:any[]=[];  
 resultedUser:any;
+result:any[]=[];
+tagarr:any[]=[];
 constructor(private http:HttpClient, private toastr:ToastrService, private service:ApiService){
-  //this.getAllUsersUsingNext();
-  this.getStudentList();
+  this.getAllUsersUsingNext();
+  //this.getStudentList();
 }
 
 //Direct using subscribe
@@ -38,9 +40,34 @@ getAllUsersUsingNext(){
   this.service.getAllUsersUsingNext().subscribe({
     next : (res:any) =>{
       this.userList = res;
+      // Displaying Only First Name
+      // for (let i = 0; i < this.userList.length; i++) {
+      //   let fullName = this.userList[i].name; 
+      //   let nameParts = fullName.trim().replace(/\s+/g, ' ').split(" "); 
+
+      //   let firstName = nameParts[0];
+    
+      //   this.result.push({name:firstName});
+      // }
+      this.result = this.userList;
     }
-  })
+  });
 }
+  selectedTag(tag: any) {
+    this.tagarr.push({
+      name: tag?.name
+    })
+  }
+  removeTag(tag: any) {
+    const index = this.tagarr.indexOf(tag);
+    if (index !== -1) {
+      this.tagarr.splice(index, 1);  
+    }
+    console.log(this.tagarr);
+  }
+  submitTag(){
+    console.log(this.tagarr);
+  }
 filterUserById(){
 
   this.resultedUser = this.userList.filter(user => user.id==this.userId);

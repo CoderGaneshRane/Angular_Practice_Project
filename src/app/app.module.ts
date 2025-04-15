@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostApiComponent } from './components/post-api/post-api.component';
+import { TagInputModule } from 'ngx-chips';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PostApiComponent } from './components/post-api/post-api.component';
       closeButton:true,
       preventDuplicates: true
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TagInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
