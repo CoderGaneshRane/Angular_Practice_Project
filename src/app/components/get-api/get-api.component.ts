@@ -63,7 +63,6 @@ getAllUsersUsingNext(){
     if (index !== -1) {
       this.tagarr.splice(index, 1);  
     }
-    console.log(this.tagarr);
   }
   submitTag(){
     console.log(this.tagarr);

@@ -44,20 +44,18 @@
             </div>
         </div>
     </div>
-    <div class="row col-12">
+    <div class="row mt-2">
         <ng-container>
-            <tag-input [(ngModel)]="tagarr" [identifyBy]="'name'" [displayBy]="'name'" (onRemove)="removeTag($event)" placeholder="Enter tag">
+            <tag-input [(ngModel)]="tagarr" [identifyBy]="'name'" [displayBy]="'name'" (onRemove)="removeTag($event)"
+            placeholder="Enter tag">
             </tag-input>
         </ng-container>
         <ul class="pt-4 list-unstyled d-flex gap-2">
-            <li
-              *ngFor="let vitals of result" (click)="selectedTag(vitals)">
-              <a class="btn btn-sm btn-primary">{{ vitals.name }}</a>
+            <li *ngFor="let vitals of result" (click)="selectedTag(vitals)">
+                <a class="btn btn-sm btn-primary">{{ vitals.name }}</a>
             </li>
-          </ul>
-    </div>
-    <div class="row align-center ms-auto me-auto" style="width: 80px;">
-        <button class="btn btn-primary mt-2 text-center" (click)="submitTag()">
+        </ul>
+        <button class="btn btn-primary mt-2 ms-auto me-auto" style="width:80px;" (click)="submitTag()">
             Submit
         </button>
     </div>
@@ -65,52 +63,55 @@
 
 <div class="container-fluid mt-3">
     <div class="container">
-        <h3 class="text-center mt-2">User Table</h3>
-        <table class="table table-bordered text-center">
-            <thead>
-                <tr>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Username
-                    </th>
-                    <th>
-                        Phone
-                    </th>
-                    <th>
-                        City
-                    </th>
-                    <th>
-                        Street
-                    </th>
-                    <th>
-                        Zipcode
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of userList">
-                    <td>
-                        {{item.name}}
-                    </td>
-                    <td>
-                        {{item.username}}
-                    </td>
-                    <td>
-                        {{item.phone}}
-                    </td>
-                    <td>
-                        {{item.address.city}}
-                    </td>
-                    <td>
-                        {{item.address.street}}
-                    </td>
-                    <td>
-                        {{item.address.zipcode}}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="card">
+
+            <h3 class="text-center mt-2">User Table</h3>
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Username
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+                            City
+                        </th>
+                        <th>
+                            Street
+                        </th>
+                        <th>
+                            Zipcode
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of userList">
+                        <td>
+                            {{item.name}}
+                        </td>
+                        <td>
+                            {{item.username}}
+                        </td>
+                        <td>
+                            {{item.phone}}
+                        </td>
+                        <td>
+                            {{item.address.city}}
+                        </td>
+                        <td>
+                            {{item.address.street}}
+                        </td>
+                        <td>
+                            {{item.address.zipcode}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
