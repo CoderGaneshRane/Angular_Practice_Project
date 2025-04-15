@@ -44,6 +44,23 @@
             </div>
         </div>
     </div>
+    <div class="row col-12">
+        <ng-container>
+            <tag-input [(ngModel)]="tagarr" [identifyBy]="'name'" [displayBy]="'name'" (onRemove)="removeTag($event)" placeholder="Enter tag">
+            </tag-input>
+        </ng-container>
+        <ul class="pt-4 list-unstyled d-flex gap-2">
+            <li
+              *ngFor="let vitals of result" (click)="selectedTag(vitals)">
+              <a class="btn btn-sm btn-primary">{{ vitals.name }}</a>
+            </li>
+          </ul>
+    </div>
+    <div class="row align-center ms-auto me-auto" style="width: 80px;">
+        <button class="btn btn-primary mt-2 text-center" (click)="submitTag()">
+            Submit
+        </button>
+    </div>
 </div>
 
 <div class="container-fluid mt-3">

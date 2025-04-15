@@ -15,4 +15,7 @@ export class ApiService {
   submitUser(data:any):Observable<any>{
     return this.http.post("mockapi",data);
   }
+  getAllStudents(){
+    return this.http.get("http://localhost:2525/student/get-all-students");
+  }
 }

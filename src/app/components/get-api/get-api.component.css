@@ -1,0 +1,14 @@
+::ng-deep tag-input {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+  }
+  
+  ::ng-deep tag-input tag {
+    background-color: #1976d2;
+    color: white;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 2px;
+  }
