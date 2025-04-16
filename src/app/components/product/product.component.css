@@ -1,0 +1,9 @@
+.custom-card{
+    width: 80%;
+    margin-left: 10%;
+}
+@media print{
+    button {
+        display: none;
+    }
+}
