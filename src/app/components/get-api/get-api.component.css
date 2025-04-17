@@ -3,6 +3,7 @@
     padding: 8px;
     border-radius: 6px;
     background-color: #f9f9f9;
+    /* background-color: white; */
   }
   
   ::ng-deep tag-input tag {
@@ -12,3 +13,24 @@
     padding: 4px 8px;
     margin: 2px;
   }
+  .tag-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag-item {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #198754;
+    border-radius: 20px;
+    color:white;
+    padding:5px 10px 5px 10px;
+    margin-bottom: 5px;
+  }
+
+  /* Tag Input CSS 
+  ::ng-deep .vitals-tag-input tag-input .ng2-tag-input__text-input {
+  pointer-events: none !important;
+  user-select: none;
+  caret-color: transparent;
+} */

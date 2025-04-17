@@ -57,12 +57,14 @@ getAllUsersUsingNext(){
     this.tagarr.push({
       name: tag?.name
     })
+    this.result = this.result.filter(item => item.name!==tag.name);
   }
   removeTag(tag: any) {
     const index = this.tagarr.indexOf(tag);
     if (index !== -1) {
       this.tagarr.splice(index, 1);  
     }
+    this.result = this.userList.filter(item => !this.tagarr.some(tag => tag.name === item.name));
   }
   submitTag(){
     console.log(this.tagarr);

@@ -44,24 +44,45 @@
             </div>
         </div>
     </div>
-    <div class="row mt-2">
-        <ng-container>
-            <tag-input [(ngModel)]="tagarr" [identifyBy]="'name'" [displayBy]="'name'" (onRemove)="removeTag($event)"
-            placeholder="Enter tag">
-            </tag-input>
-        </ng-container>
-        <ul class="pt-4 list-unstyled d-flex gap-2">
-            <li *ngFor="let vitals of result" (click)="selectedTag(vitals)">
-                <a class="btn btn-sm btn-primary">{{ vitals.name }}</a>
-            </li>
-        </ul>
-        <button class="btn btn-primary mt-2 ms-auto me-auto" style="width:80px;" (click)="submitTag()">
-            Submit
-        </button>
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-2">
+                        <ng-container>
+                            <div class="tag-wrapper">
+                                <span *ngFor="let item of tagarr" class="tag-item">
+                                    {{ item.name }}
+                                </span>
+                            </div>
+                            <tag-input [(ngModel)]="tagarr" [identifyBy]="'name'" [displayBy]="'name'"
+                                (onRemove)="removeTag($event)" [hideForm]="true">
+                            </tag-input>
+                        </ng-container>
+                        <ul class="pt-4 list-unstyled d-flex flex-wrap gap-2">
+                            <li *ngFor="let vitals of result" (click)="selectedTag(vitals)">
+                                <a class="btn btn-sm btn-primary">{{ vitals.name }}</a>
+                            </li>
+                        </ul>
+                        <button class="btn btn-success mt-2 ms-auto me-auto" style="width:80px;" (click)="submitTag()">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+    
+                </div>
+            </div>
+        </div>
     </div>
+    
 </div>
 
-<div class="container-fluid mt-3">
+<!-- <div class="container-fluid mt-3">
     <div class="container">
         <div class="card">
 
@@ -114,4 +135,4 @@
             </table>
         </div>
     </div>
-</div>
+</div> -->
