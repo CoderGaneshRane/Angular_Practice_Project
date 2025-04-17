@@ -3,7 +3,6 @@
     padding: 8px;
     border-radius: 6px;
     background-color: #f9f9f9;
-    /* background-color: white; */
   }
   
   ::ng-deep tag-input tag {
@@ -34,3 +33,11 @@
   user-select: none;
   caret-color: transparent;
 } */
+
+.custom-label{
+  color:red;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}

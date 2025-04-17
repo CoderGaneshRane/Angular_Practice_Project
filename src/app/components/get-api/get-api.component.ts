@@ -16,6 +16,7 @@ userList:any[]=[];
 resultedUser:any;
 result:any[]=[];
 tagarr:any[]=[];
+visible:boolean=false;
 constructor(private http:HttpClient, private toastr:ToastrService, private service:ApiService){
   this.getAllUsersUsingNext();
   //this.getStudentList();
@@ -54,6 +55,9 @@ getAllUsersUsingNext(){
   });
 }
   selectedTag(tag: any) {
+    if(this.tagarr){
+      this.visible = true;
+    }
     this.tagarr.push({
       name: tag?.name
     })
@@ -65,6 +69,10 @@ getAllUsersUsingNext(){
       this.tagarr.splice(index, 1);  
     }
     this.result = this.userList.filter(item => !this.tagarr.some(tag => tag.name === item.name));
+
+    if(this.result.length === this.userList.length){
+      this.visible=false;
+    }
   }
   submitTag(){
     console.log(this.tagarr);
