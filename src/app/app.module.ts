@@ -14,7 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostApiComponent } from './components/post-api/post-api.component';
 import { TagInputModule } from 'ngx-chips';
-import { ProductComponent } from './components/product/product.component';
+import { PrintComponent } from './components/print/print.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { ProductComponent } from './components/product/product.component';
     ReactiveFormComponent,
     GetApiComponent,
     PostApiComponent,
-    ProductComponent
+    PrintComponent
   ],
   imports: [
     BrowserModule,

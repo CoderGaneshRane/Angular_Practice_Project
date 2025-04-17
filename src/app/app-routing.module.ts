@@ -4,7 +4,7 @@ import { TemplateFormComponent } from './components/template-form/template-form.
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { GetApiComponent } from './components/get-api/get-api.component';
 import { PostApiComponent } from './components/post-api/post-api.component';
-import { ProductComponent } from './components/product/product.component';
+import { PrintComponent } from './components/print/print.component';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
     path:'post-api', component:PostApiComponent
   },
   {
-    path:'product', component:ProductComponent
+    path:'print', component:PrintComponent
   }
 ];
 

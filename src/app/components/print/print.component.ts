@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'app-print',
+  templateUrl: './print.component.html',
+  styleUrls: ['./print.component.css']
 })
-export class ProductComponent {
+export class PrintComponent {
 
   printContent(){  
     const printContent = document.getElementById('print-content')?.innerHTML; // Ensure the section exists
