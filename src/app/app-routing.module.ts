@@ -5,6 +5,7 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { GetApiComponent } from './components/get-api/get-api.component';
 import { PostApiComponent } from './components/post-api/post-api.component';
 import { PrintComponent } from './components/print/print.component';
+import { TodoComponent } from './to-do-list/todo/todo.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   },
   {
     path:'print', component:PrintComponent
+  },
+  {
+    path:'todo-list', component:TodoComponent
   }
 ];
 

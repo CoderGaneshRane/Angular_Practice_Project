@@ -1,0 +1,180 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row text-center mt-2 bg-primary p-2 text-white">
+            <h3>TO-DO List</h3>
+        </div>
+        <div class="d-flex gap-2">
+            <div class="card w-50 mt-2" style="height: 250px;">
+                <div class="card-body">
+                    <form [formGroup]="taskData">
+                        <div class="row">
+                            <div class="title text-center">
+                                <span>
+                                   Add Task
+                                </span>
+                            </div>                            <div class="d-flex gap-1 mt-3">
+                                <div class="col-4">
+                                    <input type="text" class="form-control add-input" formControlName="task"
+                                    placeholder="Enter Your Tasks">
+                                </div>
+                                <div class="col-4">
+                                    <ng-select [items]="priorityArray" bindLabel="name" bindValue="id"
+                                    formControlName="priority" 
+                                    placeholder="Select Priority">
+                                    </ng-select>
+                                </div>
+                                <div class="col-4">
+                                    <input type="date" class="form-control add-input" formControlName="date"
+                                    placeholder="Select date">
+                                </div>
+                            </div>
+                            <div class="footer">
+                                <button class="btn btn-primary ms-2 mt-3" [disabled]="taskData.invalid" (click)="addTask()">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="card w-50 mt-2" style="height: 250px;">
+                <div class="card-body">
+                    <div class="scrollable-content">
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Task Name
+                                    </th>
+                                    <th>
+                                        Priority
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of taskArray">
+                                    <td>
+                                        {{item.task_name}}
+                                    </td>
+                                    <td>
+                                        {{item.task_priority}}
+                                    </td>
+                                    <td>
+                                        {{item.task_date}}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm done-btn btn-success">
+                                            Done <i class="fa-solid fa-circle-check"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger custom-btn ms-1">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex gap-2">
+            <div class="card w-50 mt-2" style="height: 250px;">
+                <div class="card-body">
+                    <div class="title text-center">
+                        <span>
+                            Completed Task
+                        </span>
+                    </div>
+                    <div class="scrollable-content mt-2">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Task Name
+                                    </th>
+                                    <th>
+                                        Priority
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>
+                                       
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card w-50 mt-2">
+                <div class="card-body">
+                    <div class="title text-center">
+                        <span>
+                            Deleted Task
+                        </span>
+                    </div>
+                    <div class="scrollable-content mt-2">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Task Name
+                                    </th>
+                                    <th>
+                                        Priority
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

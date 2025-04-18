@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateFormComponent } from './components/template-form/template-form.component';
@@ -15,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostApiComponent } from './components/post-api/post-api.component';
 import { TagInputModule } from 'ngx-chips';
 import { PrintComponent } from './components/print/print.component';
+import { TodoComponent } from './to-do-list/todo/todo.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PrintComponent } from './components/print/print.component';
     ReactiveFormComponent,
     GetApiComponent,
     PostApiComponent,
-    PrintComponent
+    PrintComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { PrintComponent } from './components/print/print.component';
       preventDuplicates: true
     }),
     BrowserAnimationsModule,
-    TagInputModule
+    TagInputModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

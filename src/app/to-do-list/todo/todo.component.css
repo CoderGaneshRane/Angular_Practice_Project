@@ -1,0 +1,58 @@
+.add-label{
+    font-size: 25px;
+}
+.add-input{
+    width: 100%;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+/* ::ng-deep .ng-select{
+    border: 1px solid #ccc !important; 
+    border-radius: 5px;
+  }
+  ::ng-deep .ng-select .ng-select-container {
+    height: 46px !important;
+    display: flex;
+    border: none;
+    align-items: center;
+  }
+  
+  ::ng-deep .ng-select .ng-select-container .ng-value-container {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}  
+    /* Adjust padding for better spacing */
+  
+  
+  /* ::ng-deep .ng-select .ng-select-container .ng-arrow-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  ::ng-deep .ng-select .ng-placeholder {
+    font-size: 12px !important;
+  }  */
+  ::ng-deep .ng-select .ng-value-container {
+    font-size: 14px !important;
+  }
+  .title{
+    font-size: 20px;
+  }
+  .custom-btn{
+    border-radius: 50%;
+  }
+  .custom-btn:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+  .done-btn:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+  .scrollable-content {
+    height: 200px; 
+    overflow-y: auto;
+  }
