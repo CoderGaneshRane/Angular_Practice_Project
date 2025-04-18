@@ -17,6 +17,7 @@ resultedUser:any;
 result:any[]=[];
 tagarr:any[]=[];
 visible:boolean=false;
+id:any;
 constructor(private http:HttpClient, private toastr:ToastrService, private service:ApiService){
   this.getAllUsersUsingNext();
   //this.getStudentList();
@@ -75,6 +76,7 @@ getAllUsersUsingNext(){
     }
   }
   submitTag(){
+    this.toastr.success('','Tag Submitted Successfully!!');
     console.log(this.tagarr);
   }
 filterUserById(){
@@ -100,5 +102,25 @@ getStudentList(){
       console.table(res);
     }
   })
+}
+editRecord(data:any){
+  this.userData.get('name')?.setValue(data.name);
+  this.userData.get('phone')?.setValue(data.phone);
+  this.userData.get('username')?.setValue(data.username);
+  this.userData.get('city')?.setValue(data.address.city);
+  this.userData.get('street')?.setValue(data.address.street);
+  this.userData.get('zipcode')?.setValue(data.address.zipcode);
+  this.id = data.id;
+}
+submitEditRecord(){
+this.userList[this.id-1].name = this.userData.value.name;
+this.userList[this.id-1].username = this.userData.value.username;
+this.userList[this.id-1].phone = this.userData.value.phone;
+this.userList[this.id-1].address.city = this.userData.value.city;
+this.userList[this.id-1].address.street = this.userData.value.street;
+this.userList[this.id-1].address.zipcode = this.userData.value.zipcode;
+}
+deleteRecord(deleteId:any){
+ this.userList =  this.userList.filter(user => user.id !== deleteId);
 }
 }

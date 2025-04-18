@@ -87,7 +87,7 @@
     
 </div>
 
-<!-- <div class="container-fluid mt-3">
+<div class="container-fluid mt-4">
     <div class="container">
         <div class="card">
 
@@ -113,6 +113,9 @@
                         <th>
                             Zipcode
                         </th>
+                        <th>
+                            Action
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -135,9 +138,63 @@
                         <td>
                             {{item.address.zipcode}}
                         </td>
+                        <td>
+                            <span class="d-flex">
+                                <button class="btn btn-primary" data-bs-target="#editRecord" data-bs-toggle="modal" (click)="editRecord(item)">Edit</button>
+                                <button class="btn btn-danger ms-2" (click)="deleteRecord(item.id)">Delete</button>
+                            </span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-</div> -->
+</div>
+<div class="modal fade" id="editRecord" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content" style="justify-self: auto;">
+            <div class="modal-header" style="padding-bottom:0px;">
+                <h3 class="modal-title" style="margin:0px;" id="exampleModalLabel">Edit Patient</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form [formGroup]="userData" (ngSubmit)="submitEditRecord()">
+            <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Name</label>
+                            <input class="form-control" formControlName="name">
+                        </div>
+                        <div class="col-6">
+                            <label>Username</label>
+                            <input class="form-control" formControlName="username">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <label>Phone</label>
+                            <input class="form-control" formControlName="phone">
+                        </div>
+                        <div class="col-6">
+                            <label>City</label>
+                            <input class="form-control" formControlName="city">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <label>Street</label>
+                            <input class="form-control" formControlName="street">
+                        </div>
+                        <div class="col-6">
+                            <label>Zipcode</label>
+                            <input class="form-control" formControlName="zipcode">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">Close</button> -->
+                    <button class="btn btn-success" data-bs-dismiss="modal">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
