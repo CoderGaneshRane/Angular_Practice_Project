@@ -121,6 +121,9 @@ this.userList[this.id-1].address.street = this.userData.value.street;
 this.userList[this.id-1].address.zipcode = this.userData.value.zipcode;
 }
 deleteRecord(deleteId:any){
- this.userList =  this.userList.filter(user => user.id !== deleteId);
+ const isDelete = confirm("Are you sure want to delete?");
+ if(isDelete){
+   this.userList =  this.userList.filter(user => user.id !== deleteId);
+ } 
 }
 }
