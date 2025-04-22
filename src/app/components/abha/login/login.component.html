@@ -1,1 +1,50 @@
-<p>login works!</p>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Select Login Method</h2>
+  
+    <div class="row justify-content-center g-4">
+      <div class="col-10 col-sm-6 col-md-3">
+        <div class="card h-100 text-center shadow-sm" role="button" (click)="selectLogin('mobile')">
+          <div class="card-body">
+            <img src="assets/mobile-icon.png" class="img-fluid mb-3" style="max-height: 80px;" alt="Mobile Login" />
+            <h5 class="card-title">Login with Mobile</h5>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-10 col-sm-6 col-md-3">
+        <div class="card h-100 text-center shadow-sm" role="button" (click)="selectLogin('aadhaar')">
+          <div class="card-body">
+            <img src="assets/aadhaar-icon.png" class="img-fluid mb-3" style="max-height: 80px;" alt="Aadhaar Login" />
+            <h5 class="card-title">Login with Aadhaar</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile Login Form -->
+    <div class="row justify-content-center mt-4" *ngIf="selectedLogin === 'mobile'">
+      <div class="col-md-6 col-sm-10">
+        <form (ngSubmit)="loginWithMobile()" class="card p-4 shadow-sm">
+          <h4 class="text-center mb-3">Login With Mobile</h4>
+          <div class="mb-3">
+            <input type="tel" class="form-control" [(ngModel)]="mobileNumber" name="mobile" placeholder="Enter Mobile Number" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Aadhaar Login Form -->
+    <div class="row justify-content-center mt-4" *ngIf="selectedLogin === 'aadhaar'">
+      <div class="col-md-6 col-sm-10">
+        <form (ngSubmit)="loginWithAadhaar()" class="card p-4 shadow-sm">
+          <h4 class="text-center mb-3">Login With Aadhar</h4>
+          <div class="mb-3">
+            <input type="text" class="form-control" [(ngModel)]="aadhaarNumber" name="aadhaar" placeholder="Enter Aadhaar Number" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
