@@ -6,11 +6,15 @@ import { GetApiComponent } from './components/get-api/get-api.component';
 import { PostApiComponent } from './components/post-api/post-api.component';
 import { PrintComponent } from './components/print/print.component';
 import { TodoComponent } from './to-do-list/todo/todo.component';
+import { LoginComponent } from './components/abha/login/login.component';
 
 const routes: Routes = [
   {
+    path:'', component:LoginComponent
+  },
+  {
    // path: '', component:TemplateFormComponent
-   path: '', component:ReactiveFormComponent
+   path: 'reactive-form', component:ReactiveFormComponent
   },
   {
     path:'template-form', component:TemplateFormComponent

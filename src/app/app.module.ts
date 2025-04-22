@@ -16,6 +16,7 @@ import { TagInputModule } from 'ngx-chips';
 import { PrintComponent } from './components/print/print.component';
 import { TodoComponent } from './to-do-list/todo/todo.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { LoginComponent } from './components/abha/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     GetApiComponent,
     PostApiComponent,
     PrintComponent,
-    TodoComponent
+    TodoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
