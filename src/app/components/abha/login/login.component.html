@@ -27,7 +27,8 @@
         <form (ngSubmit)="loginWithMobile()" class="card p-4 shadow-sm">
           <h4 class="text-center mb-3">Login With Mobile</h4>
           <div class="mb-3">
-            <input type="tel" class="form-control" [(ngModel)]="mobileNumber" name="mobile" placeholder="Enter Mobile Number" required />
+            <input type="tel" class="form-control" [(ngModel)]="mobileNumber" name="mobile" placeholder="Enter Mobile Number"
+              maxlength="10" pattern="[0-9]*" inputmode="numeric" (keypress)="allowOnlyNumbers($event)" required />
           </div>
           <button type="submit" class="btn btn-primary w-100">Login</button>
         </form>
@@ -40,7 +41,8 @@
         <form (ngSubmit)="loginWithAadhaar()" class="card p-4 shadow-sm">
           <h4 class="text-center mb-3">Login With Aadhar</h4>
           <div class="mb-3">
-            <input type="text" class="form-control" [(ngModel)]="aadhaarNumber" name="aadhaar" placeholder="Enter Aadhaar Number" required />
+            <input type="tel" class="form-control" [(ngModel)]="aadhaarNumber" name="aadhaar" placeholder="Enter Aadhaar Number"
+              maxlength="12" pattern="[0-9]*" inputmode="numeric" (keypress)="allowOnlyNumbers($event)" required />
           </div>
           <button type="submit" class="btn btn-primary w-100">Login</button>
         </form>
