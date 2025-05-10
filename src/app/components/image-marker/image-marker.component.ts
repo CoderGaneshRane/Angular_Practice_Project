@@ -17,46 +17,27 @@ export class ImageMarkerComponent {
   private originY = 0;
   transform = 'scale(1)';
   transformOrigin = '0% 0%';
+  penColor: string = 'red';
 
   ngAfterViewInit(): void {
     this.ctx = this.canvasRef.nativeElement.getContext('2d')!;
     this.resizeCanvas();
   }
 
-  // onWheel(event: WheelEvent) {
-  //   event.preventDefault();
-  //   const delta = event.deltaY < 0 ? 1.1 : 0.9;
-  //   const rect = this.containerRef.nativeElement.getBoundingClientRect();
-
-  //   // Get cursor position relative to container
-  //   const offsetX = event.clientX - rect.left;
-  //   const offsetY = event.clientY - rect.top;
-
-  //   // Update origin to cursor point
-  //   const originPercentX = (offsetX / rect.width) * 100;
-  //   const originPercentY = (offsetY / rect.height) * 100;
-
-  //   this.transformOrigin = `${originPercentX}% ${originPercentY}%`;
-  //   this.scale *= delta;
-  //   this.transform = `scale(${this.scale})`;
-  // }
 onWheel(event: WheelEvent) {
   event.preventDefault();
   const delta = event.deltaY < 0 ? 1.1 : 0.9;
   const rect = this.containerRef.nativeElement.getBoundingClientRect();
 
-  // Get cursor position relative to container
   const offsetX = event.clientX - rect.left;
   const offsetY = event.clientY - rect.top;
 
-  // Update origin to cursor point
   const originPercentX = (offsetX / rect.width) * 100;
   const originPercentY = (offsetY / rect.height) * 100;
   this.transformOrigin = `${originPercentX}% ${originPercentY}%`;
 
-  // Apply zoom limit
   const newScale = this.scale * delta;
-  this.scale = Math.max(1, newScale); // ⬅ Enforce minimum scale of 1
+  this.scale = Math.max(1, newScale); 
   this.transform = `scale(${this.scale})`;
 }
 
@@ -81,8 +62,8 @@ onWheel(event: WheelEvent) {
     if (!this.drawing) return;
     const { x, y } = this.getRelativeCoordinates(event);
     this.ctx.lineTo(x, y);
-    this.ctx.strokeStyle = 'red';
-    this.ctx.lineWidth = 2 / this.scale; // Scale stroke width
+  this.ctx.strokeStyle = this.penColor;
+    this.ctx.lineWidth = 2 / this.scale; 
     this.ctx.stroke();
   }
 
@@ -110,5 +91,28 @@ resizeCanvas() {
   onResize() {
     this.resizeCanvas();
   }
+clearCanvas() {
+  const canvas = this.canvasRef.nativeElement;
+  this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+saveCanvas() {
+  const link = document.createElement('a');
+  link.download = 'marked-image.png';
+
+  const tempCanvas = document.createElement('canvas');
+  const canvas = this.canvasRef.nativeElement;
+  const image = this.imageRef.nativeElement;
+
+  tempCanvas.width = canvas.width;
+  tempCanvas.height = canvas.height;
+  const tempCtx = tempCanvas.getContext('2d')!;
+
+  tempCtx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+  tempCtx.drawImage(canvas, 0, 0);
+
+  link.href = tempCanvas.toDataURL();
+  link.click();
+}
 
 }
