@@ -17,6 +17,7 @@ import { PrintComponent } from './components/print/print.component';
 import { TodoComponent } from './to-do-list/todo/todo.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LoginComponent } from './components/abha/login/login.component';
+import { ImageMarkerComponent } from './components/image-marker/image-marker.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LoginComponent } from './components/abha/login/login.component';
     PostApiComponent,
     PrintComponent,
     TodoComponent,
-    LoginComponent
+    LoginComponent,
+    ImageMarkerComponent
   ],
   imports: [
     BrowserModule,
