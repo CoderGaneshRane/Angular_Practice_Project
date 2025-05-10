@@ -1,0 +1,35 @@
+<div
+  class="card"
+  style="width: 700px; height: 800px; overflow: hidden; position: relative; margin: auto;"
+>
+  <!-- Zoomable Container -->
+  <div
+    #container
+    class="image-container"
+    (wheel)="onWheel($event)"
+    (mousemove)="onMouseMove($event)"
+    (mousedown)="startDrawing($event)"
+    (mouseup)="stopDrawing()"
+    (mouseleave)="stopDrawing()"
+    [style.transform]="transform"
+    [style.transform-origin]="transformOrigin"
+    style="width: 100%; height: 100%; position: relative;"
+  >
+    <!-- Image -->
+    <img
+      #image
+      src="assets/mobile-icon.png"
+      alt="Zoomable"
+      class="img-fluid"
+      style="width: 100%; height: 100%; object-fit: contain; display: block;"
+    />
+
+    <!-- Canvas -->
+    <canvas
+      #canvas
+      width="700"
+      height="800"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"
+    ></canvas>
+  </div>
+</div>

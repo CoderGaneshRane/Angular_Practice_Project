@@ -1,0 +1,128 @@
+<!-- <div class="container mt-5">
+    <h2 class="text-center mb-4">Select Login Method</h2>
+  
+    <div class="row justify-content-center g-4">
+      <div class="col-10 col-sm-6 col-md-3">
+        <div class="card h-100 text-center shadow-sm" role="button" (click)="selectLogin('mobile')">
+          <div class="card-body">
+            <img src="assets/mobile-icon.png" class="img-fluid mb-3" style="max-height: 80px;" alt="Mobile Login" />
+            <h5 class="card-title">Login with Mobile</h5>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-10 col-sm-6 col-md-3">
+        <div class="card h-100 text-center shadow-sm" role="button" (click)="selectLogin('aadhaar')">
+          <div class="card-body">
+            <img src="assets/aadhaar-icon.png" class="img-fluid mb-3" style="max-height: 80px;" alt="Aadhaar Login" />
+            <h5 class="card-title">Login with Aadhaar</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row justify-content-center mt-4" *ngIf="selectedLogin === 'mobile'">
+      <div class="col-md-6 col-sm-10">
+        <form (ngSubmit)="loginWithMobile()" class="card p-4 shadow-sm">
+          <h4 class="text-center mb-3">Login With Mobile</h4>
+          <div class="mb-3">
+           <input type="tel" class="form-control" [(ngModel)]="mobileNumber" name="mobile" placeholder="Enter Mobile Number"
+              maxlength="10" pattern="[0-9]*" inputmode="numeric" (keypress)="allowOnlyNumbers($event)" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Get OTP</button>
+        </form>
+      </div>
+    </div>
+  
+    <div class="row justify-content-center mt-4" *ngIf="selectedLogin === 'aadhaar'">
+      <div class="col-md-6 col-sm-10">
+        <form (ngSubmit)="loginWithAadhaar()" class="card p-4 shadow-sm">
+          <h4 class="text-center mb-3">Login With Aadhar</h4>
+          <div class="mb-3">
+            <input type="tel" class="form-control" [(ngModel)]="aadhaarNumber" name="aadhaar" placeholder="Enter Aadhaar Number"
+              maxlength="12" pattern="[0-9]*" inputmode="numeric" (keypress)="allowOnlyNumbers($event)" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Get OTP</button>
+        </form>
+      </div>
+    </div>
+  </div>
+   -->
+
+
+<!-- Button to open modal -->
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageZoomModal">
+  Open
+</button>
+
+<!-- Modal with fixed size -->
+<!-- <div class="modal fade" id="imageZoomModal" tabindex="-1">
+  <div class="modal-dialog" style="width: 500px; max-width: 500px;">
+    <div class="modal-content" style="height: 500px;">
+      <div class="modal-header">
+        <h5 class="modal-title">Zoomable & Markable Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-0 position-relative" style="width: 100%; height: 100%;">
+        <div
+          id="image-container"
+          class="w-100 h-100 overflow-hidden position-relative"
+          style="width: 100%; height: 100%;"
+        >
+          <img
+            id="zoomImage"
+            src="assets/mobile-icon.png"
+            style="width: 100%; height: 100%; object-fit: contain; cursor: grab;"
+            class="position-absolute top-0 start-0"
+          />
+
+          <canvas
+            id="drawCanvas"
+            class="position-absolute top-0 start-0"
+            style="z-index: 10;"
+          ></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Modal -->
+<div class="modal fade" id="imageZoomModal" tabindex="-1">
+  <div class="modal-dialog" style="width: 500px; max-width: 500px;">
+    <div class="modal-content" style="height: 500px;">
+      <div class="modal-header">
+        <h5 class="modal-title">Zoomable & Markable Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-0 position-relative" style="width: 100%; height: 100%;">
+        <div
+          id="image-container"
+          class="w-100 h-100 overflow-hidden position-relative"
+          style="width: 100%; height: 100%;"
+        >
+          <!-- Image for panzoom -->
+          <img
+            id="zoomImage"
+            src="assets/mobile-icon.png"
+            style="width: 100%; height: 100%; object-fit: contain; cursor: grab;"
+            class="position-absolute top-0 start-0"
+          />
+
+          <!-- Canvas overlay for drawing -->
+          <canvas
+            id="drawCanvas"
+            class="position-absolute top-0 start-0"
+            style="z-index: 10;"
+          ></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-primary" (click)="saveImageWithDrawings()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
