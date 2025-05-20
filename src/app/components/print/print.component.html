@@ -3,34 +3,41 @@
         <h3 class="row justify-content-center mt-2">
             Printing Practice
         </h3>
-        <div class="card custom-card mt-4"  id="print-content">
+        <div class="card custom-card mt-4" id="print-content">
             <div class="header">
                 <h5 class="text-center mt-2">
                     TrackMyClass: Tutorials
                 </h5>
                 <p class="mt-2" style="max-width: 600px; margin: 0 auto; word-wrap: break-word; text-align: center;">
-                    Shop no 1,2,3; D10 Popullarnagar, Opp Mai Mangeshkar Hospital, Near Shree Navgarah Hanuman Mandir, Mumbai banglore bypass, Warje, 411058, Pune, 7890321564
+                    Shop no 1,2,3; D10 Popullarnagar, Opp Mai Mangeshkar Hospital, Near Shree Navgarah Hanuman Mandir,
+                    Mumbai banglore bypass, Warje, 411058, Pune, 7890321564
                 </p>
             </div>
             <table class="table table-bordered text-center mt-4 mb-0">
                 <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>College</th>
+                        <th>Name</th>
+                        <th>College</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td style="padding: 10px;">Adarsh Kumar</td>
-                        <td style="word-wrap: break-word; text-align: center;">Shop no 1,2,3; D10 Popullarnagar, Opp Mai Mangeshkar Hospital, Near Shree Navgarah Hanuman Mandir, Mumbai banglore bypass, Warje, 411058, Pune, 7890321564</td>
+                        <td style="word-wrap: break-word; text-align: center;">Shop no 1,2,3; D10 Popullarnagar, Opp Mai
+                            Mangeshkar Hospital, Near Shree Navgarah Hanuman Mandir, Mumbai banglore bypass, Warje,
+                            411058, Pune, 7890321564</td>
                     </tr>
                     <tr>
                         <td style="padding: 10px;">Suresh Kumar</td>
-                        <td style="word-wrap: break-word; text-align: center;">Shop no 1,2,3; D10 Popullarnagar, Opp Mai Mangeshkar Hospital, Near Shree Navgarah Hanuman Mandir, Mumbai banglore bypass, Warje, 411058, Pune, 7890321564</td>
+                        <td style="word-wrap: break-word; text-align: center;">Shop no 1,2,3; D10 Popullarnagar, Opp Mai
+                            Mangeshkar Hospital, Near Shree Navgarah Hanuman Mandir, Mumbai banglore bypass, Warje,
+                            411058, Pune, 7890321564</td>
                     </tr>
                     <tr>
                         <td style="padding: 10px;">Mahesh Kumar</td>
-                        <td style="word-wrap: break-word; text-align: center;">Shop no 1,2,3; D10 Popullarnagar, Opp Mai Mangeshkar Hospital, Near Shree Navgarah Hanuman Mandir, Mumbai banglore bypass, Warje, 411058, Pune, 7890321564</td>
+                        <td style="word-wrap: break-word; text-align: center;">Shop no 1,2,3; D10 Popullarnagar, Opp Mai
+                            Mangeshkar Hospital, Near Shree Navgarah Hanuman Mandir, Mumbai banglore bypass, Warje,
+                            411058, Pune, 7890321564</td>
                     </tr>
                 </tbody>
             </table>
@@ -39,6 +46,8 @@
             <button class="btn btn-primary btn-sm" style="width: 50px;" (click)="printContent()">
                 Print
             </button>
+            <a *ngIf="pdfBlobUrl" [attr.href]="pdfBlobUrl" download="prescription.pdf" class="btn btn-sm btn-primary ms-2"> Download
+            </a>
         </div>
     </div>
 </div>
