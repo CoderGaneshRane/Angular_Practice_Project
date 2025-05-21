@@ -130,13 +130,11 @@ export class PrintComponent {
     this.pdfBlobUrl = URL.createObjectURL(blob);
 
     console.log(this.pdfBlobUrl);
-    // Convert Blob to base64 and send to backend
     const base64Pdf = await this.blobToBase64(blob);
-    console.log(base64Pdf);
     // If your backend expects raw base64 without prefix:
     const base64Data = base64Pdf.split(',')[1];
 
-    //console.log(base64Data);
+    console.log(base64Data);
 
     // this.http
     //   .post('/api/upload-pdf', { file: base64Data })
@@ -195,4 +193,51 @@ export class PrintComponent {
     });
   }
 
+
+
+  // Testing code to check downloaded PDF 
+//  downloadPDF() {
+//     const options = {
+//       margin: 0.5,
+//       filename: 'Prescription.pdf',
+//       image: { type: 'jpeg', quality: 0.98 },
+//       html2canvas: { scale: 2 },
+//       jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+//     };
+
+//    const content: HTMLElement = this.printableContent.nativeElement;
+
+//     html2pdf().set(options).from(content).save();
+//   }
+
+
+//   generateAndSendPDF() {
+//     const content: HTMLElement = this.printableContent.nativeElement;
+
+//     const options = {
+//       margin: 0.5,
+//       filename: 'Prescription-file.pdf',
+//       image: { type: 'jpeg', quality: 0.98 },
+//       html2canvas: { scale: 2 },
+//       jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+//     };
+
+//     html2pdf()
+//       .set(options)
+//       .from(content)
+//       .outputPdf('blob')  
+//       .then((pdfBlob: Blob) => {
+//         const formData = new FormData();
+//         formData.append('file', pdfBlob, 'exported-file.pdf');
+//         console.log(pdfBlob);
+//         this.doctorService.sendRxPdf(formData).subscribe({
+//           next: (res:any)=>{
+//             console.log(res);
+//           },
+//           error:(err:any)=>{
+//             console.log(err);
+//           }
+//         })
+//       });
+//   }
 }
