@@ -1,0 +1,7 @@
+table {
+  table-layout: fixed;
+}
+td {
+  height: 38px; /* Match this with height per 15min slot */
+  vertical-align: top;
+}

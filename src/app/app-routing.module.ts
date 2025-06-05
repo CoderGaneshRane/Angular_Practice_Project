@@ -8,6 +8,7 @@ import { PrintComponent } from './components/print/print.component';
 import { TodoComponent } from './to-do-list/todo/todo.component';
 import { LoginComponent } from './components/abha/login/login.component';
 import { ImageMarkerComponent } from './components/image-marker/image-marker.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,9 @@ const routes: Routes = [
   },
   {
     path:'image-marker', component:ImageMarkerComponent
+  },
+  {
+    path:'schedule', component:ScheduleComponent
   }
 ];
 

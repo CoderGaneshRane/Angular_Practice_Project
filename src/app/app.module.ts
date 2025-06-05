@@ -18,6 +18,7 @@ import { TodoComponent } from './to-do-list/todo/todo.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LoginComponent } from './components/abha/login/login.component';
 import { ImageMarkerComponent } from './components/image-marker/image-marker.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ImageMarkerComponent } from './components/image-marker/image-marker.com
     PrintComponent,
     TodoComponent,
     LoginComponent,
-    ImageMarkerComponent
+    ImageMarkerComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
