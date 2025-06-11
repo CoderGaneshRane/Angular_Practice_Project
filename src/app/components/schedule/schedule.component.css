@@ -2,6 +2,16 @@ table {
   table-layout: fixed;
 }
 td {
-  height: 38px; /* Match this with height per 15min slot */
-  vertical-align: top;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+table tbody tr {
+  height: 40px; 
+}
+.no-border-header {
+  border: none !important;
+}
+th {
+  background-color: #0d6efd;
+  color: white;
 }
