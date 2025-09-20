@@ -1,27 +1,32 @@
-table th{
-    background-color: #87f6bc;
+table th {
+  background-color: #87f6bc;
 }
-.bgcolor-class{
- background-color: #f8f9fa;
+
+.bgcolor-class {
+  background-color: #f8f9fa;
 }
+
 .custom-card {
   background: #87f6bc;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   height: 150px;
 }
-.card-body-custom{
+
+.card-body-custom {
   display: flex;
   flex-direction: column;
   /* color: #00b1ff; */
   font-weight: bold;
   font-size: 20px;
 }
+
 .fade-slide-in {
   opacity: 0;
   transform: translateY(-20px);
-  animation: fadeSlideIn 0.8s forwards; /* duration 0.4s */
+  animation: fadeSlideIn 0.8s forwards;
 }
+
 @keyframes fadeSlideIn {
   to {
     opacity: 1;
