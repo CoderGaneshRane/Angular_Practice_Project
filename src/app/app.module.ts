@@ -21,6 +21,7 @@ import { ImageMarkerComponent } from './components/image-marker/image-marker.com
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { PatientFormComponent } from './components/patient-form/patient-form.component';
 import { HomeLoanComponent } from './components/home-loan/home-loan.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { HomeLoanComponent } from './components/home-loan/home-loan.component';
     }),
     BrowserAnimationsModule,
     TagInputModule,
-    NgSelectModule
+    NgSelectModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

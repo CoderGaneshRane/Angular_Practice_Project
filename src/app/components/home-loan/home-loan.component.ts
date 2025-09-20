@@ -11,6 +11,8 @@ export class HomeLoanComponent {
   emiDetails: any;
   totalCalculation:any;
   showEmiTable:boolean=false;
+  page = 1;             
+  pageSize = 12; 
 
   loanForm: FormGroup = new FormGroup({
     principalAmount: new FormControl('', [Validators.required, Validators.minLength(7)]),
@@ -48,6 +50,5 @@ export class HomeLoanComponent {
   clearForm() {
     this.loanForm.reset();
     this.showEmiTable=false;
-    console.log(this.showEmiTable);
   }
 }
