@@ -1,0 +1,129 @@
+<div class="container-fluid p-4 bgcolor-class">
+    <div class="card shadow-lg p-4" style="background-color: #87f6bc;">
+        <form [formGroup]="loanForm">
+            <div class="row">
+                <div class="col-md-4 col-12">
+                    <label>Enter Loan Amount<span style="color:red;">*</span></label>
+                    <input class="form-control mb-2" formControlName="principalAmount" placeholder="Principal Amount"
+                        type="text">
+                    <span class="text-danger"
+                        *ngIf="loanForm.get('principalAmount')?.touched && loanForm.get('principalAmount')?.errors?.['required']">Please
+                        Enter Amount</span>
+                    <span class="text-danger"
+                        *ngIf="loanForm.get('principalAmount')?.touched && loanForm.get('principalAmount')?.errors?.['minlength']">Amount
+                        Should Be Greater Than 10 Lakhs</span>
+                </div>
+                <div class="col-md-4 col-12">
+                    <label>Enter Interest<span style="color:red;">*</span></label>
+                    <input class="form-control mb-2" formControlName="annualInterest" placeholder="Interest Rate %"
+                        type="text">
+                    <span class="text-danger"
+                        *ngIf="loanForm.get('annualInterest')?.touched && loanForm.get('annualInterest')?.errors?.['required']">Please
+                        Enter Annual Interest</span>
+                </div>
+                <div class="col-md-4 col-12">
+                    <label>Enter Tenure<span style="color:red;">*</span></label>
+                    <input class="form-control mb-2" formControlName="tenure" type="text" placeholder="In Years">
+                    <span class="text-danger"
+                        *ngIf="loanForm.get('tenure')?.touched && loanForm.get('tenure')?.errors?.['required']">Please
+                        Enter Loan Tenure</span>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4 col-12">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input name="isExtraEmi" formControlName="isExtraEmi" class="form-check-input"
+                                type="checkbox">
+                            <label class="form-check-label">
+                                Are you willing to pay extra EMI every year?
+                            </label>
+                        </div>
+                    </div>
+                    <input *ngIf="loanForm.get('isExtraEmi')?.value == true" class="form-control"
+                        formControlName="extraEmi" placeholder="Number of EMI's">
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input name="isAnnualStepUp" formControlName="isAnnualStepUp" class="form-check-input"
+                                type="checkbox">
+                            <label class="form-check-label">
+                                Are you willing to take annual step-up?
+                            </label>
+                        </div>
+                    </div>
+                    <input *ngIf="loanForm.get('isAnnualStepUp')?.value == true" class="form-control"
+                        formControlName="stepUpPercent" placeholder="Enter in percent">
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <button class="btn btn-secondary me-2" (click)="clearForm()">
+                    Clear
+                </button>
+                <button [disabled]="loanForm.invalid" type="submit" class="btn btn-primary"
+                (click)="onSubmit()">Calculate</button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- *ngIf="showEmiTable" -->
+    <ng-container>
+        <h4 class="text-center mt-4">Month-Wise EMI Calculation</h4>
+        <div class="row mt-4">
+            <div class="col-md-3 col-12">
+                <div class="card custom-card">
+                    <div class="card-body card-body-custom text-center justify-content-between">
+                        <span>Total Years</span>
+                        <span>{{totalCalculation.required_years | number:'1.0-0'}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-12">
+                <div class="card custom-card">
+                    <div class="card-body card-body-custom text-center justify-content-between">
+                       <span>Principal Paid</span>
+                       <span>{{totalCalculation.total_principal | number:'1.0-0'}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-12">
+                <div class="card custom-card">
+                    <div class="card-body card-body-custom text-center justify-content-between">
+                        <div>Interest Paid</div>
+                        <div>{{totalCalculation.total_interest | number:'1.0-0'}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-12">
+                <div class="card custom-card">
+                    <div class="card-body card-body-custom text-center justify-content-between">
+                       <span>Amount Paid</span>
+                       <span>{{totalCalculation.total_paid | number:'1.0-0'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4 class="text-center mt-4">Month-Wise EMI Calculation</h4>
+        <table class="table table-bordered text-center mt-3">
+            <thead>
+                <tr>
+                    <th>Month No.</th>
+                    <th>EMI</th>
+                    <th>Interest Amount</th>
+                    <th>Principal Amount</th>
+                    <th>Remaining Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let monthlyEmi of emiDetails">
+                    <td>{{monthlyEmi.month}}</td>
+                    <td>{{monthlyEmi.emi | number:'1.2-2'}}</td>
+                    <td>{{monthlyEmi.interest | number:'1.2-2'}}</td>
+                    <td>{{monthlyEmi.principal | number:'1.2-2'}}</td>
+                    <td>{{monthlyEmi.remaining | number:'1.2-2'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>

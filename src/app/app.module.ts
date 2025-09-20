@@ -19,6 +19,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { LoginComponent } from './components/abha/login/login.component';
 import { ImageMarkerComponent } from './components/image-marker/image-marker.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { PatientFormComponent } from './components/patient-form/patient-form.component';
+import { HomeLoanComponent } from './components/home-loan/home-loan.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
     TodoComponent,
     LoginComponent,
     ImageMarkerComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    PatientFormComponent,
+    HomeLoanComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
@@ -9,6 +9,8 @@ import { TodoComponent } from './to-do-list/todo/todo.component';
 import { LoginComponent } from './components/abha/login/login.component';
 import { ImageMarkerComponent } from './components/image-marker/image-marker.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { PatientFormComponent } from './components/patient-form/patient-form.component';
+import { HomeLoanComponent } from './components/home-loan/home-loan.component';
 
 const routes: Routes = [
   {
@@ -38,6 +40,12 @@ const routes: Routes = [
   },
   {
     path:'schedule', component:ScheduleComponent
+  },
+  {
+    path:'patient-form', component:PatientFormComponent
+  },
+  {
+    path:'home-loan', component:HomeLoanComponent
   }
 ];
 

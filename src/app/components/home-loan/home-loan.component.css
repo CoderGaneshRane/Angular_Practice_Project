@@ -1,0 +1,19 @@
+table th{
+    background-color: #87f6bc;
+}
+.bgcolor-class{
+ background-color: #f8f9fa;
+}
+.custom-card {
+  background: #87f6bc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  height: 150px;
+}
+.card-body-custom{
+  display: flex;
+  flex-direction: column;
+  /* color: #00b1ff; */
+  font-weight: bold;
+  font-size: 20px;
+}

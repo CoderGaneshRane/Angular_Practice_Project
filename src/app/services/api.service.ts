@@ -24,4 +24,8 @@ export class ApiService {
   getAllTask():Observable<any>{
     return this.http.get("https://67f638fe42d6c71cca61000b.mockapi.io/template");
   }
+  //=======================================================================
+  calculateHomeLoanDetails(data:any){
+    return this.http.post("http://localhost:2525/loan/calculate",data);
+  }
 }
