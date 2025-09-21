@@ -6,6 +6,10 @@
                     <label>Enter Loan Amount<span style="color:red;">*</span></label>
                     <input class="form-control mb-2" formControlName="principalAmount" placeholder="Principal Amount"
                         type="text">
+                    <!-- <ng-select [items]="principalOptions" bindLabel="label" bindValue="value"
+                        placeholder="Select Principal Amount" formControlName="principalAmount" [searchable]="true"
+                        class="mb-2 form-control">
+                    </ng-select> -->
                     <span class="text-danger"
                         *ngIf="loanForm.get('principalAmount')?.touched && loanForm.get('principalAmount')?.errors?.['required']">Please
                         Enter Amount</span>

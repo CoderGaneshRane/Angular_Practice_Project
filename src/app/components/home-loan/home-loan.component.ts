@@ -13,7 +13,12 @@ export class HomeLoanComponent {
   showEmiTable: boolean = false;
   page = 1;
   pageSize = 12;
-
+  principalOptions = [
+  { label: '1000000', value: 1000000 },
+  { label: '1500000', value: 1500000 },
+  { label: '2000000', value: 2000000 },
+  { label: '2500000', value: 1500000 }
+];
   loanForm: FormGroup = new FormGroup({
     principalAmount: new FormControl('', [Validators.required, Validators.minLength(7)]),
     annualInterest: new FormControl('', Validators.required),
